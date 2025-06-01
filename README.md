@@ -28,4 +28,6 @@ This project is a **Spring Boot Admin Panel** built using the `spring-boot-admin
 ```bash
 git clone https://github.com/benalif/SpringBootOps.git
 cd SpringBootOps/
+cd spring-boot-admin/ && mvn clean package
+cd ../spring-boot-client/ && mvn clean package
 docker-compose up -d
