@@ -1,0 +1,26 @@
+services:
+  spring-boot-admin-server:
+    build:
+      context: ./spring-boot-admin
+      dockerfile: Dockerfile
+    container_name: spring-boot-admin-server
+    ports:
+      - "8888:8888"
+    networks:
+      - springBootAdminNetwork
+
+  spring-boot-client:
+    build:
+      context: ./spring-boot-client
+      dockerfile: Dockerfile
+    container_name: spring-boot-client
+    ports:
+      - "8080:8080"
+    networks:
+      - springBootAdminNetwork
+    depends_on:
+      - spring-boot-admin-server
+
+networks:
+  springBootAdminNetwork:
+    driver: bridge
